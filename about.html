@@ -11,8 +11,9 @@
   <div class="background"></div>
   <header class="header fade-in">
     <img src="media/logo.png" alt="Error404 Logo" class="logo">
+    <button class="nav-toggle" onclick="toggleNav()">☰</button>
     <nav>
-      <ul>
+      <ul id="nav-menu">
         <li><a href="index.html" data-lang="nav-home">首頁</a></li>
         <li><a href="about.html" data-lang="nav-about">關於我們</a></li>
         <li><a href="menber.html" data-lang="nav-members">成員介紹</a></li>
@@ -26,5 +27,16 @@
     <h1 data-lang="nav-about">關於我們</h1>
     <p data-lang="about-text">Error404 是一支由技術與創意驅動的開發團隊，致力於實現創新的想法與項目。</p>
   </main>
+  
+  <footer class="footer fade-in">
+    <p>&copy; 2025 Error404 Teams. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    function toggleNav() {
+      const navMenu = document.getElementById('nav-menu');
+      navMenu.classList.toggle('nav-open');
+    }
+  </script>
 </body>
 </html>

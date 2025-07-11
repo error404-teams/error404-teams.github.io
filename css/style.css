@@ -1,4 +1,5 @@
 
+/* Reset and Base Styles */
 body, html {
   margin: 0;
   padding: 0;
@@ -17,22 +18,29 @@ body, html {
   filter: brightness(0.4);
 }
 
+/* Header and Navigation */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 15px 20px;
   background: rgba(0, 0, 0, 0.5);
+  position: relative;
 }
 
 .header .logo {
-  height: 50px;
+  height: 40px;
+  max-width: 150px;
+  object-fit: contain;
 }
 
 nav ul {
   display: flex;
   list-style: none;
-  gap: 20px;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -40,34 +48,114 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: block;
 }
 
 nav a:hover {
+  color: #00ffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.nav-toggle:hover {
   color: #00ffff;
 }
 
 #language-selector {
   background: #222;
   color: white;
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 5px;
+  border: none;
+  font-size: 12px;
 }
 
+/* Content Area */
 .content {
-  padding: 80px 40px;
+  padding: 60px 20px;
   max-width: 900px;
   margin: auto;
   text-align: center;
   animation: fadeIn 1.5s ease;
+  min-height: calc(100vh - 200px);
 }
 
+.content h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.content p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Tabs Styling (for member page) */
+.tabs {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  padding: 12px 20px;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  min-height: 44px; /* Touch-friendly size */
+}
+
+.tab-button:hover {
+  background: #555;
+  transform: translateY(-2px);
+}
+
+.tab-content {
+  display: none;
+  text-align: center;
+  padding: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-content h2 {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
 .footer {
   text-align: center;
   padding: 20px;
   background: rgba(0, 0, 0, 0.4);
-  font-size: 14px;
+  font-size: clamp(0.8rem, 2vw, 14px);
 }
 
+/* Animations */
 .fade-in {
   animation: fadeIn 1s ease forwards;
 }
@@ -75,4 +163,121 @@ nav a:hover {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .header {
+    padding: 12px 15px;
+  }
+  
+  .header .logo {
+    height: 35px;
+  }
+  
+  nav ul {
+    gap: 10px;
+  }
+  
+  nav a {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+  
+  .content {
+    padding: 40px 15px;
+  }
+  
+  .tabs {
+    gap: 10px;
+  }
+  
+  .tab-button {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .header .logo {
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  
+  /* Mobile Navigation */
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  
+  nav {
+    width: 100%;
+    order: 2;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    padding: 10px;
+    display: none;
+  }
+  
+  nav ul.nav-open {
+    display: flex;
+  }
+  
+  nav a {
+    text-align: center;
+    padding: 12px;
+    margin: 2px 0;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .content {
+    padding: 30px 15px;
+  }
+  
+  .tabs {
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .tab-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+  }
+  
+  .tab-content {
+    padding: 15px;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 320px) {
+  .header {
+    padding: 10px;
+  }
+  
+  .content {
+    padding: 20px 10px;
+  }
+  
+  nav a {
+    font-size: 14px;
+    padding: 10px;
+  }
 }
