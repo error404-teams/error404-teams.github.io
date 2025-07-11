@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>成員介紹 - Error404</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- <script src="js/language.js" defer></script> -->
+  <style>
+    .tabs { display: flex; gap: 20px; justify-content: center; margin-top: 40px; }
+    .tab-content { display: none; text-align: center; }
+    .tab-content.active { display: block; }
+    .tab-button { padding: 10px 20px; background: #333; color: white; border: none; cursor: pointer; }
+    .tab-button:hover { background: #555; }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <header class="header fade-in">
+    <img src="media/logo.png" alt="Error404 Logo" class="logo">
+    <nav>
+      <ul>
+        <li><a href="index.html" data-lang="nav-home">首頁</a></li>
+        <li><a href="about.html" data-lang="nav-about">關於我們</a></li>
+        <li><a href="menber.html" data-lang="nav-members">成員介紹</a></li>
+        <li><a href="project.html" data-lang="nav-projects">項目展示</a></li>
+        <li><a href="join.html" data-lang="nav-join">加入我們</a></li>
+        <li><a href="contact.html" data-lang="nav-contact">聯絡方式</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="content fade-in">
+    <h1 data-lang="nav-members">成員介紹</h1>
+    <div class="tabs">
+      <button class="tab-button" onclick="showTab('jelly')">JellyFish_2333</button>
+      <button class="tab-button" onclick="showTab('efs')">efs</button>
+    </div>
+    <div id="jelly" class="tab-content active">
+      <h2>JellyFish_2333 (@george06350)</h2>
+      <p>前端 / Python 開發者、創始成員</p>
+    </div>
+    <div id="efs" class="tab-content">
+      <h2>efs (@lmr0811)</h2>
+      <p>後端 / 系統架構師、創始成員</p>
+    </div>
+  </main>
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</body>
+</html>
